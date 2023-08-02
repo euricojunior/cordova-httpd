@@ -108,11 +108,18 @@ public class CorHttpd extends CordovaPlugin {
         	localPath = www_root;
         } else {
         	//localPath = "file:///android_asset/www";
-        	localPath = "www";
-        	if(www_root.length()>0) {
-        		localPath += "/";
+        	//localPath = "www";
+			if(www_root.length()==0) {
+				localPath = "www";
+				localPath += "/";
         		localPath += www_root;
-        	}
+			} else {
+				localPath = www_root;
+			}
+        	//if(www_root.length()>0) {
+        	//	localPath += "/";
+        	//	localPath += www_root;
+        	//}
         }
 
         final CallbackContext delayCallback = callbackContext;
