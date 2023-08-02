@@ -19,6 +19,7 @@ import org.json.JSONObject;
 import android.util.Log;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Environment;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -104,7 +105,7 @@ public class CorHttpd extends CordovaPlugin {
         localhost_only = options.optBoolean(OPT_LOCALHOST_ONLY, false);
         
         if(www_root.startsWith("/")) {
-    		localPath = Environment.getExternalFilesDir().getAbsolutePath();
+    		localPath = Environment.getExternalStorageDirectory().getAbsolutePath();
         	localPath += www_root;
         } else {
         	//localPath = "file:///android_asset/www";
